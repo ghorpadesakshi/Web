@@ -1,0 +1,31 @@
+body{
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border: 80px;
+    display: flex;
+  }
+  
+  div{
+    display: block;
+    height: auto;
+    width: 500px;
+  }
+  
+  form{
+    border: 2px solid black;
+    padding: 20px;
+    margin: auto;
+    background-color: rgb(225, 193, 237);
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+h1{
+    text-align: center;
+}
+
+button{
+    background-color: rgb(148, 27, 134);
+    padding: 10px;
+}

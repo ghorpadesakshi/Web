@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form</title>
+<link rel="stylesheet" href="index.css">
+    
+</head>
+<h2> Welcome to Sanjivani College of Engineering</h2>
+<body>
+<form action="#" onsubmit=" validateForm()" >
+<table class="t">
+<caption>Registration Form</caption>
+<tr>
+<td><label for="name">Enter Name :</label>
+<input type="text" id="name" required>
+</td>
+</tr>
+<tr>
+<td><label for="email">Enter Email :</label>
+<input type="email" id="email" required>
+</td>
+</tr>
+<tr>
+<td><label for="pass">Enter password :</label>
+<input type="password" id="pass" required>
+</td>
+</tr>
+<tr>
+<td><label for="cpass">Confirm password :</label>
+<input type="password" id="cpass" required>
+</td>
+</tr>
+<tr>
+<td>
+<div id="result0" class="tan"></div>
+<div id="result1" class="tan"></div>
+<div id="result2" class="tan"></div>
+<div id="result3" class="tan"></div>
+<div id="result4" class="tan"></div>
+</td>
+</tr>
+<tr>
+<td>
+<button type="submit" onclick="validateForm()">Submit</button>
+<button type="Reset" onclick=" "> Reset </button>
+</td>
+</tr>
+
+</table>
+<br>
+<footer> Last Date for Registration is 3-10-2024</footer>
+</form>
+
+<script>
+function validateForm() {
+let uname = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let pass = document.getElementById("pass").value;
+let confirmpass = document.getElementById("cpass").value;
+
+document.getElementById('result1').innerText = '';
+document.getElementById('result2').innerText = '';
+document.getElementById('result3').innerText = '';
+document.getElementById('result4').innerText = '';
+if(uname==""){
+document.getElementById('result1').innerText='Username Required';
+}
+if (uname.length < 5) {
+document.getElementById('result1').innerText = 'Username must be at least 5 characters long.';
+}
+const Regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(email==''){
+document.getElementById('result2').innerText= 'Email required.'
+
+}
+if (!Regex.test(email)) {
+document.getElementById('result2').innerText = 'Please enter a valid email address.';
+}
+
+const passR = /^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+if( pass==''){
+document.getElementById('result3').innerText= 'Password required.'
+}
+if (!passR.test(pass)) {
+document.getElementById('result3').innerText = 'Password must be at least 8 characters long, contain one uppercase letter, one number, and one special character.';
+}
+if(confirmpass==''){
+document.getElementById('result4').innerText= 'you must Confirm password first.'
+}
+if (pass !== confirmpass) {
+document.getElementById('result4').innerText = 'Password do not match.';
+}
+if(valid)
+{
+document.getElementById('result0').innerText="Form Submitted Succesfully";
+}
+ return valid;
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To_Do List</title>
+<style>
+body{
+font-family: Arial, sans-serif;
+text-align: center;
+margin: 20px;
+}
+
+input,button{
+padding:10px;
+margin:5px;
+}
+
+ul{
+list-style: none;
+padding: 0;
+}
+
+li{
+margin: 5px 0;
+padding:10px;
+border: 1px solid #ccc;
+display: flex;
+justify-content:space-between;
+}
+</style>
+</head>
+<body>
+<h1> To_Do List</h1>
+<input type="text" id="TaskInput" placeholder="Enter the task">
+<button onclick="addTask()">Add</button>
+<ul id="tasklist"></ul>
+<script>
+function addTask(){
+const taskInput= document.getElementByID('taskInput').value.trim();
+if(taskValue === ''){
+alert('please enter a task!');
+return;
+};
+
+const li=document.createElement('li');
+li.textContent = taskValue;
+
+const li=document.createElement('button');
+deleteButton.textContent='Delete';
+deleteButton.onclick=function(){
+   li.remove();
+};
+
+li.appendChild(deleteButton);
+document.getElementById('tasklist').appendChild(li);
+taskInput.value='';
+
+
+}
+</script>
+
+</body>

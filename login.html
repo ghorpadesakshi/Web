@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <form>
+        <h1>Registration Form</h1>
+    <div>
+        <br>
+        Name: <input type="text" id="name" name="name" placeholder="Enter Student Name">
+    </div>
+    <br>
+    <div>
+        Phone Number: <input type="Phone" id="phone_no" placeholder="Enter phone number">
+    </div>
+    <br>
+    <div>
+        Email: <input type="email" id="mail_id" placeholder="Enter E-mail id" > 
+    </div>
+    <br>
+    <div>
+        Password: <input type="password" id="pass" placeholder="Enter the password">
+    </div>
+    <br>
+    <div>
+        Address: <textarea name="address" id="address" placeholder="Enter the password"></textarea>
+    </div>
+    <br>
+    <div>
+        Date: <input type="date" id="date" name="date">
+    </div>
+    <br>
+        Select Course:
+    <div>
+        <input type="checkbox" id="html">
+        <label for="html">HTML</label>
+    </div>
+    <div>
+        <input type="checkbox" id="c++">
+        <label for="C++">C++</label>
+    </div>
+    <div>
+        <input type="checkbox" id="java">
+        <label for="Java">JAVA</label>
+    </div>
+    <div>
+        <input type="checkbox" id="python">
+        <label for="python">Python</label>
+    </div>
+    <br>
+
+        Select Gender:
+    <div>
+        <input type="radio" id="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female">
+        <label for="female">Female</label>
+        <input type="radio" id="other">
+        <label for="other">Other</label>
+    </div>
+    <br>
+    <div>
+        Select Qualification: <select name="Qualification" id="education">
+            <option value="Ssc">SSC</option>
+            <option value="Hsc">HSC</option>
+            <option value="Graduated">GRADUATED</option>
+            <option value="Under Graduated">Under Graduated</option>
+        </select>
+    </div>
+    <br>
+    <button>Submit</button>&nbsp;
+    <button>Reset</button>
+    </form>
+    </div>
+    <script>
+        // Function to validate the form
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const name = document.getElementById("name").value.trim();
+            const phoneNo = document.getElementById("phone_no").value.trim();
+            const email = document.getElementById("mail_id").value.trim();
+            const password = document.getElementById("pass").value.trim();
+
+            const nameRegex = /^[A-Za-z\s]+$/;
+            const phoneRegex = /^[0-9]{10}$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+            if (!name) {
+                alert("Name is required.");
+                return false;
+            }
+            if (!nameRegex.test(name)) {
+                alert("Name can only contain letters and spaces.");
+                return false;
+            }
+
+            if (!phoneNo) {
+                alert("Phone number is required.");
+                return false;
+            }
+            if (!phoneRegex.test(phoneNo)) {
+                alert("Phone number must be exactly 10 digits.");
+                return false;
+            }
+
+            if (!email) {
+                alert("Email is required.");
+                return false;
+
+            }
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            if (!password) {
+                alert("Password is required.");
+                return false;
+            }
+            if (!passwordRegex.test(password)) {
+                alert("Password must be at least 8 characters long, containing letters and digits.");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+
+        // Attach the validateForm function to the form submission event
+        document.querySelector("#registrationForm").addEventListener("submit", validateForm);
+
+        // Function to reset the form
+        function resetForm() {
+            document.getElementById("registrationForm").reset(); // Resets all form fields
+            alert("Form has been reset.");
+        }
+
+        // Attach the resetForm function to the reset button
+        document.getElementById("resetButton").addEventListener("click", resetForm);
+    </script>  
+</body>
+</html>

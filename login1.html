@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div>
+        <form id="RegistrationForm" onsubmit="return validateForm()">
+            <h1>Registration Form</h1>
+            <br>
+            <div>
+                Name: <input type="text" id="name" name="name" placeholder="Enter the Name">
+            </div>
+            <br>
+            <div>
+                Password: <input type="password" id="password" placeholder="Enter the password">
+            </div>
+            <br>
+            <div>
+                Email: <input type="email" id="email" placeholder="Enter the Email">
+            </div>
+            <br>
+            <div>
+                Phone Number: <input type="text" id="phone_no" placeholder="Enter the phone number">
+            </div>
+            <br>
+            <div>
+                Address: <textarea name="address" id="address" placeholder="Enter your address"></textarea>
+            </div>
+            <br>
+            <div>
+                Date: <input type="date" id="date" name="date">
+            </div>
+            <br>
+            Select Course:
+            <div>
+                <input type="checkbox" id="C++">
+                <label for="C++">C++</label>
+            </div>
+            <div>
+                <input type="checkbox" id="HTML">
+                <label for="HTML">HTML</label>
+            </div>
+            <div>
+                <input type="checkbox" id="C">
+                <label for="C">C</label>
+            </div>
+            <div>
+                <input type="checkbox" id="C#">
+                <label for="C#">C#</label>
+            </div>
+            <div>
+                <input type="checkbox" id="python">
+                <label for="python">Python</label>
+            </div>
+            <br>
+            Select Gender:
+            <div>
+                <input type="radio" id="Male" name="gender" value="Male">
+                <label for="Male">Male</label>
+                <input type="radio" id="Female" name="gender" value="Female">
+                <label for="Female">Female</label>
+                <input type="radio" id="Other" name="gender" value="Other">
+                <label for="Other">Other</label>
+            </div>  
+            <br>
+            Select Option:
+            <div>
+                <select name="Qualification" id="Education">
+                    <option value="SSC">SSC</option>
+                    <option value="HSC">HSC</option>
+                    <option value="Graduated">Graduated</option>
+                    <option value="Under Graduated">Under Graduated</option>
+                </select>
+            </div>
+            <br>
+            <button type="submit">Submit</button> &nbsp;
+            <button type="button" onclick="resetForm()">Reset</button>
+        </form>
+    </div>
+    <script>
+        
+        function validateForm() {
+
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+
+// Name validation 
+if (name == "") {
+    alert("Name must be filled out");
+    return false;
+}
+
+// Email validation 
+let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+if (!email.match(emailPattern)) {
+    alert("Please enter a valid email address");
+    return false;
+}
+
+// Password validation 
+if (password.length < 6) {
+    alert("Password must be at least 6 characters long");
+    return false;
+}
+
+alert("Form submitted successfully!");
+return true;
+}
+
+function resetForm() {
+            document.getElementById("registrationForm").reset(); // Resets all form fields
+            alert("Form has been reset.");
+        }
+
+</script>
+
+</body>
+</html>

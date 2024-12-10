@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const taskValue = taskInput.value.trim();
+
+            if (taskValue === '') {
+                alert('Please enter a task!');
+                return;
+            }
+
+            // Create a new list item
+            const li = document.createElement('li');
+            li.textContent = taskValue;
+
+            // Add a delete button
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function () {
+                li.remove(); // Remove the task
+            };
+
+            li.appendChild(deleteButton); // Add the button to the task
+            document.getElementById('taskList').appendChild(li); // Add task to the list
+            taskInput.value = ''; // Clear the input
+        }
+    </script>
+</body>
+</html>
